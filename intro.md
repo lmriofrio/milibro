@@ -1,9 +1,7 @@
-# Bienbenidos a los jupiter books
+# ¿Qué es la computación cuántica?
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+La computación cuántica es un campo multidisciplinario que aúna aspectos de ciencias de la computación, física y matemáticas y utiliza mecánicas cuánticas para resolver problemas complejos más rápido que las computadoras clásicas. El campo de la computación cuántica incluye investigación de hardware y desarrollo de aplicaciones. Las computadoras cuánticas son capaces de resolver ciertos tipos de problemas más rápido que las computadoras clásicas, ya que sacan partido de los efectos de la mecánica cuántica, como la superposición y la interferencia cuántica. Algunas aplicaciones en las que las computadoras cuánticas pueden brindar dicho impulso de velocidad son el machine learning (ML), la optimización y la simulación de sistemas físicos. Entre los casos de uso eventuales se incluyen la optimización de la cartera en finanzas o la simulación de sistemas químicos; en definitiva, la solución de problemas que actualmente no pueden abordar ni las supercomputadoras más potentes del mercado.
+
 
 Check out the content pages bundled with this sample book to see more.
 
