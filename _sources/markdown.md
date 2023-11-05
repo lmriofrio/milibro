@@ -1,55 +1,28 @@
-# Markdown Files  LUISSSSSSSSSSSSS
+##¿Cuál es la ventaja de la computación cuántica?
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
-This is a simple file to help you get started and show off some syntax.
+Actualmente, ninguna computadora cuántica puede realizar una tarea útil de manera más rápida, económica o eficiente que una computadora clásica. La ventaja cuántica es el umbral en el que hemos construido un sistema cuántico que puede realizar operaciones que la mejor computadora cuántica posible no puede simular en ningún tipo de tiempo razonable.
 
-## What is MyST?
+![image.png](00b9e799-a3ca-4866-9ea7-f0c05105b2cf.png)!
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
 
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
+```python
+import seaborn as sns
+import numpy as np
 
-## Sample Roles and Directives
+# Configuración de seaborn para un estilo agradable
+sns.set(style="whitegrid")
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
+# Datos de ejemplo
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
 
-Here is a "note" directive:
+# Crear un gráfico interactivo
+sns.lineplot(x=x, y=y)
+plt.title('Gráfico Interactivo con Seaborn y Matplotlib')
+plt.xlabel('X')
+plt.ylabel('Y')
 
-```{note}
-Here is a note
+# Mostrar el gráfico interactivo
+plt.show()
+
 ```
-
-It will be rendered in a special box when you build your book.
-
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
-
-
-## Citations
-
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
-
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
-
-```{bibliography}
-```
-
-## Learn more
-
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
