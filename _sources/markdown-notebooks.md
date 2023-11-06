@@ -12,41 +12,61 @@ kernelspec:
   name: python3
 ---
 
-# Notebooks with MyST Markdown
+# 4. ¿Por qué necesitamos computadoras cuánticas?
 
-Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.
+Cuando los científicos e ingenieros se enfrentan a problemas difíciles, recurren a las supercomputadoras. Estas son computadoras tradicionales muy grandes, a menudo con miles de núcleos de CPU y GPU clásicos. Sin embargo, incluso las supercomputadoras luchan por resolver ciertos tipos de problemas.
 
-## An example cell
+Si una supercomputadora se paraliza, probablemente se deba a que se le pidió a la gran máquina tradicional que resolviera un problema con un alto grado de complejidad. Cuando las computadoras tradicionales fallan, a menudo se debe a la complejidad.
 
-With MyST Markdown, you can define code cells with a directive like so:
+#4.1 ¿Por qué las computadoras cuánticas son más rápidas?l
 
-```{code-cell}
-print(2 + 2)
-```
+Una supercomputadora podría ser excelente realizando tareas difíciles como revisar una gran base de datos de secuencias de proteínas. Pero tendrá dificultades para ver los patrones sutiles en esos datos que determinan cómo se comportan esas proteínas.o:
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+```{code-cefrom qiskit import QuantumCircuit, Aer, transpile, assemble
+from qiskit.visualization import plot_histogram
+from qiskit.providers.aer import AerSimulator
 
-```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
+# Definir el oráculo para el problema específico (en este caso, buscar el índice 5)
+def oracle(circuit, register):
+    circuit.cx(register[2], register[3])
+    circuit.cx(register[0], register[3])
+    circuit.cx(register[1], register[3])
 
-## Create a notebook with MyST Markdown
+# Implementar el algoritmo de Grover
+def grover_algorithm():
+    # Crear el circuito cuántico con 3 qubits
+    grover_circuit = QuantumCircuit(4, 3)
 
-MyST Markdown notebooks are defined by two things:
+    # Aplicar compuertas H a todos los qubits
+    grover_circuit.h([0, 1, 2, 3])
 
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
+    # Número de iteraciones recomendado para Grover para este problema específico
+    num_iterations = 1
 
-That's all that is needed to get started!
+    # Aplicar el operador de Grover (oracle y difusión) iterativamente
+    for _ in range(num_iterations):
+        oracle(grover_circuit, [0, 1, 2, 3])
+        grover_circuit.h([0, 1, 2, 3])
+        grover_circuit.x([0, 1, 2, 3])
+        grover_circuit.h(3)
+        grover_circuit.mct([0, 1, 2], 3)
+        grover_circuit.h(3)
+        grover_circuit.x([0, 1, 2, 3])
+        grover_circuit.h([0, 1, 2, 3])
 
-## Quickly add YAML metadata for MyST Notebooks
+    # Medir los primeros 3 qubits
+    grover_circuit.measure([0, 1, 2], [0, 1, 2])
 
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
+    return grover_circuit
+
+# Ejecutar el algoritmo en un simulador cuántico
+simulator = AerSimulator()
+compiled_circuit = transpile(grover_algorithm(), simulator)
+result = simulator.run(compiled_circuit, shots=1024).result()
+
+# Visualizar los resultados
+counts = resu/jupyterbook.org/file-types/jupytext.html).
+```d:
 
 ```
 jupyter-book myst init path/to/markdownfile.md

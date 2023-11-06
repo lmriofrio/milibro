@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Notebooks with MyST Markdown &#8212; My sample book</title>
+    <title>4. ¿Por qué necesitamos computadoras cuánticas? &#8212; My sample book</title>
   
   
   
@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">2. ¿Cuáles son los principios de la computación cuántica?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">3. ¿Qué es un cúbit?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. ¿Por qué necesitamos computadoras cuánticas?</a></li>
 </ul>
 
     </div>
@@ -340,9 +340,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -353,21 +351,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>4. ¿Por qué necesitamos computadoras cuánticas?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -377,51 +365,63 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="por-que-necesitamos-computadoras-cuanticas">
+<h1>4. ¿Por qué necesitamos computadoras cuánticas?<a class="headerlink" href="#por-que-necesitamos-computadoras-cuanticas" title="Permalink to this heading">#</a></h1>
+<p>Cuando los científicos e ingenieros se enfrentan a problemas difíciles, recurren a las supercomputadoras. Estas son computadoras tradicionales muy grandes, a menudo con miles de núcleos de CPU y GPU clásicos. Sin embargo, incluso las supercomputadoras luchan por resolver ciertos tipos de problemas.</p>
+<p>Si una supercomputadora se paraliza, probablemente se deba a que se le pidió a la gran máquina tradicional que resolviera un problema con un alto grado de complejidad. Cuando las computadoras tradicionales fallan, a menudo se debe a la complejidad.</p>
+<p>#4.1 ¿Por qué las computadoras cuánticas son más rápidas?l</p>
+<p>Una supercomputadora podría ser excelente realizando tareas difíciles como revisar una gran base de datos de secuencias de proteínas. Pero tendrá dificultades para ver los patrones sutiles en esos datos que determinan cómo se comportan esas proteínas.o:</p>
+<div class="highlight-{code-cefrom notranslate"><div class="highlight"><pre><span></span>from qiskit.visualization import plot_histogram
+from qiskit.providers.aer import AerSimulator
+
+# Definir el oráculo para el problema específico (en este caso, buscar el índice 5)
+def oracle(circuit, register):
+    circuit.cx(register[2], register[3])
+    circuit.cx(register[0], register[3])
+    circuit.cx(register[1], register[3])
+
+# Implementar el algoritmo de Grover
+def grover_algorithm():
+    # Crear el circuito cuántico con 3 qubits
+    grover_circuit = QuantumCircuit(4, 3)
+
+    # Aplicar compuertas H a todos los qubits
+    grover_circuit.h([0, 1, 2, 3])
+
+    # Número de iteraciones recomendado para Grover para este problema específico
+    num_iterations = 1
+
+    # Aplicar el operador de Grover (oracle y difusión) iterativamente
+    for _ in range(num_iterations):
+        oracle(grover_circuit, [0, 1, 2, 3])
+        grover_circuit.h([0, 1, 2, 3])
+        grover_circuit.x([0, 1, 2, 3])
+        grover_circuit.h(3)
+        grover_circuit.mct([0, 1, 2], 3)
+        grover_circuit.h(3)
+        grover_circuit.x([0, 1, 2, 3])
+        grover_circuit.h([0, 1, 2, 3])
+
+    # Medir los primeros 3 qubits
+    grover_circuit.measure([0, 1, 2], [0, 1, 2])
+
+    return grover_circuit
+
+# Ejecutar el algoritmo en un simulador cuántico
+simulator = AerSimulator()
+compiled_circuit = transpile(grover_algorithm(), simulator)
+result = simulator.run(compiled_circuit, shots=1024).result()
+
+# Visualizar los resultados
+counts = resu/jupyterbook.org/file-types/jupytext.html).
+```d:
+
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<p>jupyter-book myst init path/to/markdownfile.md</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
-</section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
-</pre></div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -469,22 +469,6 @@ See the YAML at the top of this page for example.</p></li>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
