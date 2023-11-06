@@ -2,6 +2,10 @@
 
 Una computadora cuántica funciona usando principios cuánticos. Los principios cuánticos requieren un nuevo diccionario de términos para comprenderlos por completo, términos que incluyen superposición, entrelazamiento y decoherencia. Vamos a entender estos principios a continuación.
 
+```{seealso}
+El esfuerzo computacional requerido para simular sistemas con precisión aumenta exponencialmente con la complejidad de las moléculas y los materiales de los fármacos. Incluso utilizando métodos de aproximación, las supercomputadoras actuales no pueden alcanzar el nivel de precisión que exigen estas simulaciones.
+```
+
 ![](https://d29jy8ovkd5kcx.cloudfront.net/wp-content/uploads/2022/09/30155729/Computacion-cuantica-Agustin-Jamele.jpg)
 
 ## 2.1 Superposición
